@@ -1,4 +1,6 @@
 # miniproject1PM
+INF601_VA_Advanced Programming with Python,
+Peyton Meitler
 
 ## Description
 This project will be using the packages NumPy and Matplotlib in order to create 5 graphs that output as PNG files.
