@@ -40,18 +40,19 @@ for stock in stocks:
     #This gets the min and max for the graph
     prices = getClosing(stock)
     prices.sort()
-    low_prices = prices[0]
+    low_price = prices[0]
     high_price = prices[-1]
 
     #form [xmin, xmax, ymin, ymax]
-    plt.axis([1, 10, low_prices-1,high_price+1])
+    plt.axis([1, 10, low_price-1, high_price+1])
 
     #sets the X and Y labels
     plt.ylabel("Closing Price")
     plt.xlabel("Days")
     #Puts a title on the graph
     plt.title("Closing Price for " + stock)
+    #Saves the plot
+    savefile = "charts/" + stock + ".png"
+    plt.savefig(savefile)
     #shows the graph
     plt.show()
-
-
