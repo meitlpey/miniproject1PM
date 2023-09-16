@@ -30,7 +30,7 @@ def printGraphs(stock):
     #for plotting graph
     plt.plot(days, stockClosing)
 
-    #This gets the min and max for the graph
+    #This gets the min and max for the graph.
     prices = getClosing(stock)
     prices.sort()
     low_price = prices[0]
