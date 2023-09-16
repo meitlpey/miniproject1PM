@@ -24,16 +24,7 @@ def getClosing(ticker):
 
     return  closingList
 
-try:
-    # Create charts File
-    Path("charts").mkdir()
-except FileExistsError:
-    pass
-
-#these are thee five stocks you want to track
-stocks =["MSFT", "AAPL", "GME", "SONY", "META"]
-
-for stock in stocks:
+def printGraphs(stock):
 
     stockClosing = np.array(getClosing(stock))
 
@@ -62,3 +53,36 @@ for stock in stocks:
     plt.savefig(savefile)
     #shows the graph
     plt.show()
+
+def getStocks():
+
+    stocks = []
+
+    print("Please enter five stock avbriviations to graph:")
+    for i in range(1,6):
+        while True:
+            print("Enter stock ticker number " + str(i))
+            ticker = input("> ")
+            try:
+                print("Checking Ticker")
+                stock = yf.Ticker(ticker)
+                stock.info
+                stocks.append(ticker)
+                print("Valid ticker.")
+                break
+            except:
+                print("That is not a valid stock. Please enter another.")
+                continue
+    return stocks
+
+#Start of the program
+#Creates our charts folder
+try:
+    # Create charts File
+    Path("charts").mkdir()
+except FileExistsError:
+    pass
+
+for stock in getStocks():
+    getClosing(stock)
+    printGraphs(stock)
