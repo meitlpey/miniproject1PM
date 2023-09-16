@@ -2,10 +2,6 @@
 # Peyton Meitler
 # Mini Project 1
 
-#(10/10 points) I will be checking out the master branch of your project. Please be sure to include a requirements.txt file which contains all the packages that need installed. You can create this fille with the output of pip freeze at the terminal prompt.
-#(20/20 points) There should be a README.md file in your project that explains what your project is, how to install the pip requirements, and how to execute the program. Please use the GitHub flavor of Markdown.
-
-
 import matplotlib.pyplot as plt
 import yfinance as yf
 import numpy as np
@@ -25,7 +21,7 @@ def getClosing(ticker):
     return  closingList
 
 def printGraphs(stock):
-
+    #Prints Graphs
     stockClosing = np.array(getClosing(stock))
 
     len(stockClosing)
@@ -57,12 +53,13 @@ def printGraphs(stock):
 def getStocks():
 
     stocks = []
-
-    print("Please enter five stock avbriviations to graph:")
+    #getting the users stocks
+    print("Please enter five stocks to graph:")
     for i in range(1,6):
         while True:
             print("Enter stock ticker number " + str(i))
             ticker = input("> ")
+            #checking the stocks
             try:
                 print("Checking Ticker")
                 stock = yf.Ticker(ticker)
