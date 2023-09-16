@@ -11,6 +11,7 @@
 import matplotlib.pyplot as plt
 import yfinance as yf
 import numpy as np
+from pathlib import Path
 
 
 def getClosing(ticker):
@@ -24,6 +25,13 @@ def getClosing(ticker):
         closingList.append(price)
 
     return  closingList
+
+try:
+    # Create charts File
+    Path("charts").mkdir()
+except FileExistsError:
+    pass
+
 #these are thee five stocks you want to track
 stocks =["MSFT", "AAPL", "GME", "SONY", "META"]
 
